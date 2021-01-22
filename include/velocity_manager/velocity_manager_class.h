@@ -6,8 +6,11 @@ class VelocityManager
 {
 public:
     VelocityManager(Eigen::Vector3d initialRelativePosition);
+    void set_gains(Eigen::Vector3d Kp, Eigen::Vector3d Kd, Eigen::Vector3d Ki);
     void update_control_parameters(Eigen::Vector3d relativePosition,double dt);
+    void compute_control();
     Eigen::Vector3d get_velocity_control();
+
 
     //For testing
     Eigen::Vector3d get_relative_position();
