@@ -8,6 +8,13 @@ VelocityManager::VelocityManager(Eigen::Vector3d initialRelativePosition) :
     mSigma{0.3}
 {}
 
+void VelocityManager::set_gains(Eigen::Vector3d proportionalGains,Eigen::Vector3d derivativeGains,Eigen::Vector3d integrallGains)
+{
+    mKp = proportionalGains;
+    mKd = derivativeGains;
+    mKi = integralGains;
+}
+
 void VelocityManager::update_control_parameters(Eigen::Vector3d relativePosition,double dt)
 {
     mDt = dt;
